@@ -1,0 +1,42 @@
+# virtualenv usage
+
+$ virtualenv dirname
+$ cd dirname/bin
+$ source activate
+
+# django setup
+
+$ pip install django
+$ django-admin.py startproject mysite
+$ cd mysite
+$ python manage.py startapp blog
+$ python manage.py makemigrations
+$ python manage.py migrate
+$ python manage.py createsuperuser
+$ python manage.py runserver $IP:$PORT
+
+# git 
+
+$ git init
+$ git add .
+$ git commit -am "initial update"
+
+# git remote
+$ git remote add origin GITURL
+$ git push origin master
+
+
+# heroku
+
+# if first create
+$ heroku
+$ heroku create
+$ heroku apps:rename NEWNAME
+$ heroku ps:scale web=1
+$ heroku open
+
+# if exists apps
+$ heroku git:remote --app APPNAME
+
+$ git push heroku master
+$ heroku run python manage.py shell
