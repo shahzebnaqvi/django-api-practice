@@ -30,9 +30,14 @@ class DeleteTodoAPIView(DestroyAPIView):
     """This endpoint allows for deletion of a specific Todo from the database"""
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
+    
 class ImageViewSet(ListAPIView):
     queryset = UploadImageTest.objects.all()
     serializer_class = ImageSerializer
+    def get(self, request, format=None):
+        snippets = UploadImageTest.objects.all()
+        serializer = ImageSerializer(snippets, many=True)
+        return HttpResponse(serializer.data)
 
     def post(self, request, *args, **kwargs):
         file = request.data['file']
