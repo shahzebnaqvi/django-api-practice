@@ -1,3 +1,5 @@
+from http.client import responses
+from urllib import response
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView
 from rest_framework.generics import CreateAPIView
@@ -11,7 +13,6 @@ class ListTodoAPIView(ListAPIView):
     """This endpoint list all of the available todos from the database"""
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
-
 class CreateTodoAPIView(CreateAPIView):
     """This endpoint allows for creation of a todo"""
     queryset = Todo.objects.all()
